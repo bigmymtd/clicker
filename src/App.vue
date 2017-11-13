@@ -1,17 +1,22 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <Employee/>
+    <OptionView/>
+    <OptionOperator/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import Employee from './components/Employee'
+import OptionView from './components/OptionView'
+import OptionOperator from './components/OptionOperator'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Employee,
+    OptionView,
+    OptionOperator
   }
 }
 </script>

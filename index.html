@@ -7,5 +7,59 @@
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+
+  <script>
+    class Employees{
+      constructor(value) {
+        this._value = value;
+      }
+      get value() {
+        return this._value;
+      }
+
+      increase(value) {
+          this._value += value;
+      }
+
+      decrease() {
+        this._value -= 5;
+      }
+    }
+
+    class EmployeesFactory{
+        constructor(employees) {
+          this._employees = employees;
+        }
+
+        increase1() {
+            this._employees.increase(1)
+        }
+
+        get view() {
+            return this._employees.value;
+        }
+    }
+
+    class OptionOperator{
+      constructor(employees) {
+        this._employees = employees;
+      }
+
+      decrease1() {
+        this._employees.decrease()
+      }
+    }
+
+    var emp = new Employees(0);
+    var f = new EmployeesFactory(emp);
+    var o = new OptionOperator(emp);
+
+    setInterval(() => {f.increase1()}, 1000);
+    setInterval(() => {o.decrease1()}, 10000);
+
+    console.log(f.view);
+
+  </script>
+
   </body>
 </html>
