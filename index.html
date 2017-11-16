@@ -1,65 +1,163 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>megane-clicker</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
+<head>
+  <meta charset="utf-8">
+  <title>megane-clicker</title>
+</head>
+<body>
+<div id="app"></div>
+<!-- built files will be auto injected -->
 
-  <script>
-    class Employees{
-      constructor(value) {
-        this._value = value;
-      }
-      get value() {
-        return this._value;
-      }
-
-      increase(value) {
-          this._value += value;
-      }
-
-      decrease() {
-        this._value -= 5;
-      }
+<script>
+  class OptionPrice {
+    constructor(optionA, optionB) {
+      this._optionA = optionA;
+      this._optionB = optionB;
     }
 
-    class EmployeesFactory{
-        constructor(employees) {
-          this._employees = employees;
-        }
-
-        increase1() {
-            this._employees.increase(1)
-        }
-
-        get view() {
-            return this._employees.value;
-        }
+    get optionA() {
+      return this._optionA;
     }
 
-    class OptionOperator{
-      constructor(employees) {
-        this._employees = employees;
-      }
-
-      decrease1() {
-        this._employees.decrease()
-      }
+    get optionB() {
+      return this._optionB;
     }
 
-    var emp = new Employees(0);
-    var f = new EmployeesFactory(emp);
-    var o = new OptionOperator(emp);
+    purchaseOptionA() {
+      this._optionA = parseInt(this._optionA * 1.1);
+    }
 
-    setInterval(() => {f.increase1()}, 1000);
-    setInterval(() => {o.decrease1()}, 10000);
+    purchaseOptionB() {
+      this._optionB = parseInt(this._optionB * 1.1);
+    }
+  }
 
-    console.log(f.view);
+  class PurchasedOptions {
+    constructor(optionA, optionB) {
+      this._optionA = optionA;
+      this._optionB = optionB;
+    }
 
-  </script>
+    get optionA() {
+      return this._optionA;
+    }
 
-  </body>
+    get optionB() {
+      return this._optionB;
+    }
+
+    get addValue() {
+      return (this._optionA * 100) + (this._optionB * 1000)
+    }
+
+    purchaseOptionA() {
+      this._optionA += 1;
+    }
+
+    purchaseOptionB() {
+      this._optionB += 1;
+    }
+  }
+
+  class Employee {
+    constructor(value) {
+      this._value = value;
+    }
+
+    get value() {
+      return this._value;
+    }
+
+    increase(value) {
+      this._value += value;
+    }
+  }
+
+  class Employees {
+    constructor(value) {
+      this._value = value;
+    }
+
+    get value() {
+      return this._value;
+    }
+
+    increase(value) {
+      this._value += value;
+    }
+
+    decrease(value) {
+      this._value -= value;
+    }
+  }
+
+  class EmployeesFactory {
+    constructor(employees, employee, purchasedOptions) {
+      this._employees = employees;
+      this._employee = employee;
+      this._purchasedOptions = purchasedOptions;
+    }
+
+    click() {
+      this._employees.increase(1)
+    }
+
+    increase1Second() {
+      this._employees.increase(this._employee.value + this._purchasedOptions.addValue)
+    }
+
+    get view() {
+      return this._employees.value;
+    }
+  }
+
+  class OptionOperator {
+    constructor(employees, optionPrice, purchasedOptions) {
+      this._employees = employees;
+      this._optionPrice = optionPrice;
+      this._purchasedOptions = purchasedOptions;
+    }
+
+    get optionAPrice() {
+      return this._optionPrice._optionA;
+    }
+
+    get optionBPrice() {
+      return this._optionPrice._optionB;
+    }
+
+    get optionACount() {
+      return this._purchasedOptions._optionA;
+    }
+
+    get optionBCount() {
+      return this._purchasedOptions._optionB;
+    }
+
+    purchaseOptionA() {
+      this._employees.decrease(this._optionPrice.optionA);
+      this._optionPrice.purchaseOptionA();
+      this._purchasedOptions.purchaseOptionA();
+    }
+
+    purchaseOptionB() {
+      this._employees.decrease(this._optionPrice.optionB);
+      this._optionPrice.purchaseOptionB();
+      this._purchasedOptions.purchaseOptionB();
+    }
+  }
+
+  var optionPrice = new OptionPrice(100, 200);
+  var purchasedOptions = new PurchasedOptions(0, 0);
+  var emp = new Employees(0);
+  var emp2 = new Employee(1);
+  var employeesFactory = new EmployeesFactory(emp, emp2, purchasedOptions);
+  var optionOperator = new OptionOperator(emp, optionPrice, purchasedOptions);
+
+  setInterval(() => {
+    employeesFactory.increase1Second()
+  }, 1000);
+</script>
+
+</body>
 </html>

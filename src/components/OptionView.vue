@@ -1,7 +1,9 @@
 <template>
   <div class="optionView">
-        <p>vue: {{ msg }}</p>
-        <input v-model="msg">
+    <button v-on:click="msg.purchaseOptionA()">オプションA購入</button>
+    <p>オプションA価格: {{ msg.optionAPrice }}</p>
+    <button v-on:click="msg.purchaseOptionB()">オプションB購入</button>
+    <p>オプションB価格: {{ msg.optionBPrice }}</p>
   </div>
 </template>
 
@@ -10,7 +12,7 @@ export default {
   name: 'OptionView',
   data () {
     return {
-      msg: 'OptionView'
+      msg: window.optionOperator
     }
   }
 }

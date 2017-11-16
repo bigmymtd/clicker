@@ -1,7 +1,7 @@
 <template>
   <div class="optionOperator">
-      <p>vue: {{ msg }}</p>
-      <input v-model="msg">
+    <p>オプションA: {{ msg.optionACount }}</p>
+    <p>オプションB: {{ msg.optionBCount }}</p>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
   name: 'OptionOperator',
   data () {
     return {
-      msg: 'OptionOperator'
+      msg: window.optionOperator
     }
   }
 }

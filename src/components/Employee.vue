@@ -1,7 +1,7 @@
 <template>
   <div class="employee">
-    <p>vue: {{ msg.value }}</p>
-    <input v-model="msg">
+    <p>社員: {{ msg.view }}人</p>
+    <button v-on:click="msg.click()"><img src="../assets/employee.png"/></button>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
   name: 'Employee',
   data () {
     return {
-      msg: window.emp
+      msg: window.employeesFactory
     }
   }
 }
