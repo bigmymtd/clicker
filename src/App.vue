@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <Employee/>
-    <OptionView/>
     <OptionOperator/>
+    <OptionView/>
   </div>
 </template>
 

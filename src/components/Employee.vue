@@ -37,6 +37,9 @@ a {
 }
 
 div {
-  float: left;
+  border: 1px solid #000000;
+  width:400px;
+  display: table-cell;
+  vertical-align: middle;
 }
 </style>
