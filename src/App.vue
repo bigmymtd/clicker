@@ -29,6 +29,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  background-image : url(assets/logo.png);
+  background-image : url(cow1_animated_128.gif);
+  overflow:auto;
+  height:500px;
 }
 </style>
