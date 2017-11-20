@@ -1,8 +1,8 @@
 <template>
   <div class="optionView">
-    <button v-on:click="msg.purchaseOptionA()">オプションA購入</button>
+    <button v-on:click="msg.purchaseOptionA()" v-bind:disabled="canPurchaseOptionA">オプションA購入</button>
     <p>オプションA価格: {{ msg.optionAPrice }}</p>
-    <button v-on:click="msg.purchaseOptionB()">オプションB購入</button>
+    <button v-on:click="msg.purchaseOptionB()" v-bind:disabled="canPurchaseOptionB">オプションB購入</button>
     <p>オプションB価格: {{ msg.optionBPrice }}</p>
   </div>
 </template>
@@ -12,7 +12,16 @@ export default {
   name: 'OptionView',
   data () {
     return {
-      msg: window.optionOperator
+      msg: window.optionOperator,
+      emp: window.emp
+    }
+  },
+  computed: {
+    canPurchaseOptionA () {
+      return this.emp.value < this.msg.optionAPrice
+    },
+    canPurchaseOptionB () {
+      return this.emp.value < this.msg.optionBPrice
     }
   }
 }

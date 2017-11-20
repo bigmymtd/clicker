@@ -134,16 +134,24 @@
       return this._purchasedOptions._optionB;
     }
 
+    get canPurchaseOptionA() {
+      return this._employees > this._optionPrice._optionA;
+    }
+
     purchaseOptionA() {
-      this._employees.decrease(this._optionPrice.optionA);
-      this._optionPrice.purchaseOptionA();
-      this._purchasedOptions.purchaseOptionA();
+      if(this._employees.value() > this._optionPrice.optionA) {
+        this._employees.decrease(this._optionPrice.optionA);
+        this._optionPrice.purchaseOptionA();
+        this._purchasedOptions.purchaseOptionA();
+      }
     }
 
     purchaseOptionB() {
-      this._employees.decrease(this._optionPrice.optionB);
-      this._optionPrice.purchaseOptionB();
-      this._purchasedOptions.purchaseOptionB();
+      if(this._employees.value() > this._optionPrice.optionB) {
+        this._employees.decrease(this._optionPrice.optionB);
+        this._optionPrice.purchaseOptionB();
+        this._purchasedOptions.purchaseOptionB();
+      }
     }
   }
 
