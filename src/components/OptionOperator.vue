@@ -37,9 +37,16 @@ a {
 }
 
 div {
-  border: 1px solid #000000;
+  border: 10px solid #000000;
   width:400px;
   display: table-cell;
   vertical-align: middle;
+  background-color: #ff0000;
+}
+
+p {
+  border: 3px solid #000000;
+  vertical-align: middle;
+  background-color: #ffffff;
 }
 </style>
