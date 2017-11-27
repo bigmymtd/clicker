@@ -41,18 +41,31 @@ a {
 }
 
 div {
-  border: 10px solid #000000;
   width:400px;
   display: table-cell;
   vertical-align: middle;
   background-image : url(../assets/kaisya_ayatsuru_joushi.png);
   background-color: #42b983;
   background-size: 10px;
+
+  border-style: solid;
+  border-width: 24px 24px 24px 24px;
+  -moz-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
+  -webkit-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
+  -o-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
+  border-image: url(../assets/border.png) 48 48 49 49 fill round stretch;
 }
 
 .employee_num {
   border: 3px solid #000000;
   vertical-align: middle;
   background-color: #ffffff;
+
+  border-style: solid;
+  border-width: 24px 24px 24px 24px;
+  -moz-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
+  -webkit-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
+  -o-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
+  border-image: url(../assets/border.png) 48 48 49 49 fill round stretch;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="optionOperator">
-    <p>オプションA: {{ msg.optionACount }}</p>
-    <p>オプションB: {{ msg.optionBCount }}</p>
+    <p>完全週休二日制 : {{ msg.optionACount }}</p>
+    <p>家賃補助 : {{ msg.optionBCount }}</p>
   </div>
 </template>
 
@@ -41,12 +41,25 @@ div {
   width:400px;
   display: table-cell;
   vertical-align: middle;
-  background-color: #42b983;
+
+  border-style: solid;
+  border-width: 24px 24px 24px 24px;
+  -moz-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
+  -webkit-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
+  -o-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
+  border-image: url(../assets/border.png) 48 48 49 49 fill round stretch;
 }
 
 p {
   border: 3px solid #000000;
   vertical-align: middle;
   background-color: #ffffff;
+
+  border-style: solid;
+  border-width: 24px 24px 24px 24px;
+  -moz-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
+  -webkit-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
+  -o-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
+  border-image: url(../assets/border.png) 48 48 49 49 fill round stretch;
 }
 </style>
