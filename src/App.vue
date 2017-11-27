@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+  <h1>Clicker</h1>
     <Employee/>
     <OptionOperator/>
     <OptionView/>

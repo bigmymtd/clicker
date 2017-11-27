@@ -1,15 +1,11 @@
 <template>
   <div class="optionView">
-    <div class="A">
-      <div class="A_button">
-      <button v-on:click="msg.purchaseOptionA()">オプションA購入<img src="../assets/animalface_kirin.png" width="100"/></button>
-      </div>
-    <p>
-    オプションA価格: {{ msg.optionAPrice }}
-    </p>
+    <div class="A_button">
+    <button v-on:click="msg.purchaseOptionA()" style="width:100%;"><img src="../assets/animalface_kirin.png" width="100"/><span class="A_text"><font size="5" line-height=100px>オプションA価格: {{ msg.optionAPrice }}</font></span> </button>
     </div>
-    <button v-on:click="msg.purchaseOptionB()">オプションB購入</button>
-    <p>オプションB価格: {{ msg.optionBPrice }}</p>
+    <div class="B_button">
+    <button v-on:click="msg.purchaseOptionB()" style="width:100%;"><img src="../assets/animalface_kirin.png" width="100"/><span class="A_text"><font size="5" line-height=100px>オプションB価格: {{ msg.optionBPrice }}</font></span> </button>
+    </div>
   </div>
 </template>
 
@@ -49,22 +45,20 @@ div {
   width:400px;
   display: table-cell;
   vertical-align: middle;
-  background-color: #ff0000;
-}
-
-.A{
-  border: 3px solid #000000;
-  vertical-align: middle;
-  font-size: 10px;
-  background-image : url(../assets/animalface_kirin.png);
   background-color: #42b983;
-  background-size: 100px;
 }
 
 .A_button{
   border: 3px solid #000000;
   vertical-align: middle;
-  font-size: 20px;
   background-color: #ffffff;
+  display: block;
+}
+
+.B_button{
+  border: 3px solid #000000;
+  vertical-align: middle;
+  background-color: #ffffff;
+  display: block;
 }
 </style>

@@ -41,7 +41,7 @@ div {
   width:400px;
   display: table-cell;
   vertical-align: middle;
-  background-color: #ff0000;
+  background-color: #42b983;
 }
 
 p {
