@@ -1,7 +1,7 @@
 <template>
   <div class="optionOperator">
-    <p>オプションA: {{ msg.optionACount }}</p>
-    <p>オプションB: {{ msg.optionBCount }}</p>
+    <p>{{msg.optionAName}} 購入数: {{ msg.optionACount }}</p>
+    <p>{{msg.optionBName}} 購入数: {{ msg.optionBCount }}</p>
   </div>
 </template>
 

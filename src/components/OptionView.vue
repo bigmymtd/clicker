@@ -1,9 +1,9 @@
 <template>
   <div class="optionView">
-    <button v-on:click="msg.purchaseOptionA()" v-bind:disabled="canPurchaseOptionA">{{msg.optionAName}}購入</button>
-    <p>オプションA価格: {{ msg.optionAPrice }}</p>
-    <button v-on:click="msg.purchaseOptionB()" v-bind:disabled="canPurchaseOptionB">{{msg.optionBName}}購入</button>
-    <p>オプションB価格: {{ msg.optionBPrice }}</p>
+    <button v-on:click="msg.purchaseOptionA()" v-bind:disabled="canPurchaseOptionA">{{msg.optionAName}} 購入</button>
+    <p>{{msg.optionAName}} 価格: {{ msg.optionAPrice }}</p>
+    <button v-on:click="msg.purchaseOptionB()" v-bind:disabled="canPurchaseOptionB">{{msg.optionBName}} 購入</button>
+    <p>{{msg.optionBName}} 価格: {{ msg.optionBPrice }}</p>
   </div>
 </template>
 
