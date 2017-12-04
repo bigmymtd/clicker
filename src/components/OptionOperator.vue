@@ -1,7 +1,13 @@
 <template>
-  <div class="optionOperator">
-    <p>{{msg.optionAName}} : {{ msg.optionACount }}</p>
-    <p>{{msg.optionBName}} : {{ msg.optionBCount }}</p>
+  <div class="optionOperator green-frame">
+    <p class="green-frame">{{msg.optionAName}} : {{ msg.optionACount }}</p>
+    <div class="kirin-farm">
+      <span v-for="n in msg.optionACount" v-if="n < 10"><img src="../assets/animalface_kirin.png" width="30" align="left"/></span>
+    </div>
+    <p class="green-frame">{{msg.optionBName}} : {{ msg.optionBCount }}</p>
+    <div class="kirin-farm">
+      <span v-for="n in msg.optionBCount" v-if="n < 10"><img src="../assets/animalface_kirin.png" width="30" align="left"/></span>
+    </div>
   </div>
 </template>
 
@@ -41,16 +47,16 @@ div {
   width:400px;
   display: table-cell;
   vertical-align: middle;
+}
 
-  border-style: solid;
-  border-width: 24px 24px 24px 24px;
-  -moz-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
-  -webkit-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
-  -o-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
-  border-image: url(../assets/border.png) 48 48 49 49 fill round stretch;
+.kirin-farm {
+  border: none;
 }
 
 p {
+}
+
+.green-frame {
   border: 3px solid #000000;
   vertical-align: middle;
   background-color: #ffffff;
