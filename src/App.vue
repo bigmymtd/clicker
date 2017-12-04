@@ -32,6 +32,6 @@ export default {
   margin-top: 60px;
   background-image : url(cow1_animated_128.gif);
   overflow:auto;
-  height:500px;
+  height:600px;
 }
 </style>
