@@ -9,32 +9,12 @@
 <!-- built files will be auto injected -->
 
 <script>
-  class OptionA {
+  class Option {
     constructor(optionName, price, upSpeed, priceIncreaseRate) {
       this._optionName = optionName; //オプション名
       this._price = price; //初期値
       this._upSpeed = upSpeed; //増やせる速度
       this._priceIncreaseRate = priceIncreaseRate; //値上がり率
-    }
-    get optionName() {
-      return this._optionName;
-    }
-    get price() {
-      return this._price;
-    }
-    get upSpeed() {
-      return this._upSpeed;
-    }
-    get priceIncreaseRate() {
-      return this._priceIncreaseRate;
-    }
-  }
-  class OptionB {
-    constructor(optionName, price, upSpeed, priceIncreaseRate) {
-      this._optionName = optionName;
-      this._price = price;
-      this._upSpeed = upSpeed;
-      this._priceIncreaseRate = priceIncreaseRate;
     }
     get optionName() {
       return this._optionName;
@@ -208,7 +188,7 @@
     }
   }
 
-  var optionPrice = new OptionPrice(new OptionA("完全週休2日制", 15, 100, 1.1), new OptionA("家賃補助", 20, 150, 1.2));
+  var optionPrice = new OptionPrice(new Option("完全週休2日制", 15, 100, 1.1), new Option("家賃補助", 20, 150, 1.2));
   var purchasedOptions = new PurchasedOptions(0, 0, 0, 0);
   var emp = new Employees(0);
   var emp2 = new Employee(1);
