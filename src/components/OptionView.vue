@@ -1,10 +1,10 @@
 <template>
   <div class="optionView">
     <div class="A_button">
-    <button v-on:click="msg.purchaseOptionA()" style="width:100%;"><img src="../assets/animalface_kirin.png" width="100" align="left"/><span class="A_text"><font size="5" line-height=100px>完全週休二日制 価格: {{ msg.optionAPrice }}</font></span> </button>
+    <button v-on:click="msg.purchaseOptionA()" style="width:100%;"><img src="../assets/animalface_kirin.png" width="100" align="left"/><span class="A_text"><font size="5" line-height=100px>{{msg.optionAName}} ¥{{ msg.optionAPrice }}</font></span> </button>
     </div>
     <div class="B_button">
-    <button v-on:click="msg.purchaseOptionB()" style="width:100%;"><img src="../assets/animalface_kirin.png" width="100" align="left"/><span class="A_text"><font size="5" line-height=100px>家賃補助 価格: {{ msg.optionBPrice }}</font></span> </button>
+    <button v-on:click="msg.purchaseOptionB()" style="width:100%;"><img src="../assets/animalface_kirin.png" width="100" align="left"/><span class="A_text"><font size="5" line-height=100px>{{msg.optionBName}} ¥{{ msg.optionBPrice }}</font></span> </button>
     </div>
   </div>
 </template>
@@ -14,7 +14,16 @@ export default {
   name: 'OptionView',
   data () {
     return {
-      msg: window.optionOperator
+      msg: window.optionOperator,
+      emp: window.emp
+    }
+  },
+  computed: {
+    canPurchaseOptionA () {
+      return this.emp.value < this.msg.optionAPrice
+    },
+    canPurchaseOptionB () {
+      return this.emp.value < this.msg.optionBPrice
     }
   }
 }

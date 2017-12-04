@@ -9,6 +9,26 @@
 <!-- built files will be auto injected -->
 
 <script>
+  class Option {
+    constructor(optionName, price, upSpeed, priceIncreaseRate) {
+      this._optionName = optionName; //オプション名
+      this._price = price; //初期値
+      this._upSpeed = upSpeed; //増やせる速度
+      this._priceIncreaseRate = priceIncreaseRate; //値上がり率
+    }
+    get optionName() {
+      return this._optionName;
+    }
+    get price() {
+      return this._price;
+    }
+    get upSpeed() {
+      return this._upSpeed;
+    }
+    get priceIncreaseRate() {
+      return this._priceIncreaseRate;
+    }
+  }
   class OptionPrice {
     constructor(optionA, optionB) {
       this._optionA = optionA;
@@ -24,18 +44,20 @@
     }
 
     purchaseOptionA() {
-      this._optionA = parseInt(this._optionA * 1.1);
+      this._optionA._price = parseInt(this._optionA._price * this._optionA._priceIncreaseRate);
     }
 
     purchaseOptionB() {
-      this._optionB = parseInt(this._optionB * 1.1);
+      this._optionB._price = parseInt(this._optionB._price * this._optionB._priceIncreaseRate);
     }
   }
 
   class PurchasedOptions {
-    constructor(optionA, optionB) {
+    constructor(optionA, optionACount, optionB, optionBCount) {
       this._optionA = optionA;
+      this._optionACount = optionACount;
       this._optionB = optionB;
+      this._optionBCount = optionBCount;
     }
 
     get optionA() {
@@ -46,16 +68,20 @@
       return this._optionB;
     }
 
+    /**
+     *
+     * @return {number}
+     */
     get addValue() {
-      return (this._optionA * 100) + (this._optionB * 1000)
+      return (this._optionA._price * this._optionA._priceIncreaseRate) + (this._optionB._price * this._optionB._priceIncreaseRate)
     }
 
     purchaseOptionA() {
-      this._optionA += 1;
+      this._optionACount += 1;
     }
 
     purchaseOptionB() {
-      this._optionB += 1;
+      this._optionBCount += 1;
     }
   }
 
@@ -91,6 +117,9 @@
     }
   }
 
+  /**
+   * 社員管理
+   */
   class EmployeesFactory {
     constructor(employees, employee, purchasedOptions) {
       this._employees = employees;
@@ -103,7 +132,7 @@
     }
 
     increase1Second() {
-      this._employees.increase(this._employee.value + this._purchasedOptions.addValue)
+      this._employees.increase(parseInt(this._employee.value + this._purchasedOptions));
     }
 
     get view() {
@@ -119,36 +148,48 @@
     }
 
     get optionAPrice() {
-      return this._optionPrice._optionA;
+      return this._optionPrice._optionA._price;
     }
 
     get optionBPrice() {
-      return this._optionPrice._optionB;
+      return this._optionPrice._optionB._price;
+    }
+
+    get optionAName() {
+      return this._optionPrice._optionA._optionName;
+    }
+
+    get optionBName() {
+      return this._optionPrice._optionB._optionName;
     }
 
     get optionACount() {
-      return this._purchasedOptions._optionA;
+      return this._purchasedOptions._optionACount;
     }
 
     get optionBCount() {
-      return this._purchasedOptions._optionB;
+      return this._purchasedOptions._optionBCount;
     }
 
     purchaseOptionA() {
-      this._employees.decrease(this._optionPrice.optionA);
-      this._optionPrice.purchaseOptionA();
-      this._purchasedOptions.purchaseOptionA();
+      if(this._employees.value > this._optionPrice.optionA._price) {
+        this._employees.decrease(this._optionPrice.optionA._price);
+        this._optionPrice.purchaseOptionA();
+        this._purchasedOptions.purchaseOptionA();
+      }
     }
 
     purchaseOptionB() {
-      this._employees.decrease(this._optionPrice.optionB);
-      this._optionPrice.purchaseOptionB();
-      this._purchasedOptions.purchaseOptionB();
+      if(this._employees.value > this._optionPrice.optionB._price) {
+        this._employees.decrease(this._optionPrice.optionB._price);
+        this._optionPrice.purchaseOptionB();
+        this._purchasedOptions.purchaseOptionB();
+      }
     }
   }
 
-  var optionPrice = new OptionPrice(100, 200);
-  var purchasedOptions = new PurchasedOptions(0, 0);
+  var optionPrice = new OptionPrice(new Option("完全週休2日制", 15, 100, 1.1), new Option("家賃補助", 20, 150, 1.2));
+  var purchasedOptions = new PurchasedOptions(0, 0, 0, 0);
   var emp = new Employees(0);
   var emp2 = new Employee(1);
   var employeesFactory = new EmployeesFactory(emp, emp2, purchasedOptions);

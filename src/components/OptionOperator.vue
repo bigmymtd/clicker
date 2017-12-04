@@ -1,7 +1,7 @@
 <template>
   <div class="optionOperator">
-    <p>完全週休二日制 : {{ msg.optionACount }}</p>
-    <p>家賃補助 : {{ msg.optionBCount }}</p>
+    <p>{{msg.optionAName}} : {{ msg.optionACount }}</p>
+    <p>{{msg.optionBName}} : {{ msg.optionBCount }}</p>
   </div>
 </template>
 
