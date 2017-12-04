@@ -73,7 +73,7 @@
      * @return {number}
      */
     get addValue() {
-      return (this._optionA._price * this._optionA._priceIncreaseRate) + (this._optionB._price * this._optionB._priceIncreaseRate)
+      return (this._optionACount * this._optionA._upSpeed) + (this._optionBCount * this._optionB._upSpeed)
     }
 
     purchaseOptionA() {
@@ -132,7 +132,7 @@
     }
 
     increase1Second() {
-      this._employees.increase(parseInt(this._employee.value + this._purchasedOptions));
+      this._employees.increase(this._employee.value + this._purchasedOptions.addValue);
     }
 
     get view() {
@@ -189,7 +189,7 @@
   }
 
   var optionPrice = new OptionPrice(new Option("完全週休2日制", 15, 100, 1.1), new Option("家賃補助", 20, 150, 1.2));
-  var purchasedOptions = new PurchasedOptions(0, 0, 0, 0);
+  var purchasedOptions = new PurchasedOptions(new Option("完全週休2日制", 15, 100, 1.1), 0, new Option("家賃補助", 20, 150, 1.2), 0);
   var emp = new Employees(0);
   var emp2 = new Employee(1);
   var employeesFactory = new EmployeesFactory(emp, emp2, purchasedOptions);
