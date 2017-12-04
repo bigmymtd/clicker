@@ -1,8 +1,9 @@
 <template>
   <div id="app">
+  <h1>Clicker</h1>
     <Employee/>
-    <OptionView/>
     <OptionOperator/>
+    <OptionView/>
   </div>
 </template>
 
@@ -29,5 +30,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background-image : url(cow1_animated_128.gif);
+  overflow:auto;
+  height:500px;
 }
 </style>

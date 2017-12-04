@@ -1,9 +1,11 @@
 <template>
   <div class="optionView">
-    <button v-on:click="msg.purchaseOptionA()" v-bind:disabled="canPurchaseOptionA">{{msg.optionAName}} 購入</button>
-    <p>{{msg.optionAName}} 価格: {{ msg.optionAPrice }}</p>
-    <button v-on:click="msg.purchaseOptionB()" v-bind:disabled="canPurchaseOptionB">{{msg.optionBName}} 購入</button>
-    <p>{{msg.optionBName}} 価格: {{ msg.optionBPrice }}</p>
+    <div class="A_button">
+    <button v-on:click="msg.purchaseOptionA()" style="width:100%;"><img src="../assets/animalface_kirin.png" width="100" align="left"/><span class="A_text"><font size="5" line-height=100px>{{msg.optionAName}} ¥{{ msg.optionAPrice }}</font></span> </button>
+    </div>
+    <div class="B_button">
+    <button v-on:click="msg.purchaseOptionB()" style="width:100%;"><img src="../assets/animalface_kirin.png" width="100" align="left"/><span class="A_text"><font size="5" line-height=100px>{{msg.optionBName}} ¥{{ msg.optionBPrice }}</font></span> </button>
+    </div>
   </div>
 </template>
 
@@ -45,5 +47,33 @@ li {
 
 a {
   color: #42b983;
+}
+
+div {
+  border: 10px solid #000000;
+  width:400px;
+  display: table-cell;
+  vertical-align: middle;
+
+  border-style: solid;
+  border-width: 24px 24px 24px 24px;
+  -moz-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
+  -webkit-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
+  -o-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
+  border-image: url(../assets/border.png) 48 48 49 49 fill round stretch;
+}
+
+.A_button{
+  border: 3px solid #000000;
+  vertical-align: middle;
+  background-color: #ffffff;
+  display: block;
+}
+
+.B_button{
+  border: 3px solid #000000;
+  vertical-align: middle;
+  background-color: #ffffff;
+  display: block;
 }
 </style>
