@@ -4,7 +4,7 @@
     <button v-on:click="msg.purchaseOptionA()" style="width:100%;" v-bind:disabled="canPurchaseOptionA"><img src="../assets/animalface_kirin.png" width="100" align="left"/><span class="A_text"><font size="5" line-height=100px>{{msg.optionAName}} ¥{{ msg.optionAPrice }}</font></span> </button>
     </div>
     <div class="B_button">
-    <button v-on:click="msg.purchaseOptionB()" style="width:100%;" v-bind:disabled="canPurchaseOptionB"><img src="../assets/animalface_kirin.png" width="100" align="left"/><span class="A_text"><font size="5" line-height=100px>{{msg.optionBName}} ¥{{ msg.optionBPrice }}</font></span> </button>
+    <button v-on:click="msg.purchaseOptionB()" style="width:100%;" v-bind:disabled="canPurchaseOptionB"><img src="../assets/animalface_uma.png" width="100" align="left"/><span class="A_text"><font size="5" line-height=100px>{{msg.optionBName}} ¥{{ msg.optionBPrice }}</font></span> </button>
     </div>
   </div>
 </template>

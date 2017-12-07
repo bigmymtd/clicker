@@ -1,7 +1,17 @@
 <template>
-  <div class="optionOperator">
-    <p>{{msg.optionAName}} : {{ msg.optionACount }}</p>
-    <p>{{msg.optionBName}} : {{ msg.optionBCount }}</p>
+  <div class="optionOperator green-frame">
+    <p class="green-frame">{{msg.optionAName}} : {{ msg.optionACount }}</p>
+    <div class="farm-back">
+    <div class="kirin-farm">
+      <span v-for="n in msg.optionACount" v-if="n < 12"><img src="../assets/animal_stand_kirin.png" width="30" align="left"/></span>
+    </div>
+    </div>
+    <p class="green-frame">{{msg.optionBName}} : {{ msg.optionBCount }}</p>
+    <div class="farm-back">
+    <div class="kirin-farm">
+      <span v-for="n in msg.optionBCount" v-if="n < 12"><img src="../assets/animal_stand_uma.png" width="30" align="left"/></span>
+    </div>
+    </div>
   </div>
 </template>
 
@@ -41,16 +51,22 @@ div {
   width:400px;
   display: table-cell;
   vertical-align: middle;
+}
 
-  border-style: solid;
-  border-width: 24px 24px 24px 24px;
-  -moz-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
-  -webkit-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
-  -o-border-image: url(../assets/border.png) 48 48 49 49 round stretch;
-  border-image: url(../assets/border.png) 48 48 49 49 fill round stretch;
+.kirin-farm {
+  border: none;
+}
+
+.farm-back {
+  border: none;
+  background-image : url(../assets/bg_natural_sougen.jpg);
+  background-size:90% auto;
 }
 
 p {
+}
+
+.green-frame {
   border: 3px solid #000000;
   vertical-align: middle;
   background-color: #ffffff;
